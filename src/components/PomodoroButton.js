@@ -1,11 +1,16 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const PomodoroButton = () => {
+const PomodoroButton = ({ icon }) => {
   return (
-    <div>
-      
-    </div>
+    <button className="btn pomodoro__btn">
+      <i className={icon}></i>
+    </button>
   )
+}
+
+PomodoroButton.propTypes = {
+  icon: PropTypes.string.isRequired,
 }
 
 export default PomodoroButton

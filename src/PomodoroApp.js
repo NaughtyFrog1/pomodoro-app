@@ -1,10 +1,11 @@
 import React from 'react'
+import PomodoroContainer from './components/PomodoroContainer'
 
 const PomodoroApp = () => {
   return (
-    <div>
-      Hello, World!
-    </div>
+    <>
+      <PomodoroContainer />
+    </>
   )
 }
 
