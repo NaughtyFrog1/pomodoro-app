@@ -1,0 +1,12 @@
+@import '~normalize.css/normalize.css';
+
+@import 'base/mixins';
+@import 'base/variables';
+@import 'base/globals';
+@import 'base/keyframes';
+@import 'base/utilities';
+@import 'base/buttons';
+
+@import 'components/pomodoro';
+@import 'components/modal';
+@import 'components/options';
