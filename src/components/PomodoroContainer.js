@@ -8,7 +8,7 @@ const PomodoroContainer = () => {
     <main className="pomodoro container container--md">
       <div>
         <Timer />
-        <Steps />
+        <Steps numberOfSteps={4} />
         <PomodoroButtons />
       </div>
     </main>
