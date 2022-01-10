@@ -1,8 +1,14 @@
 import React, { createContext, useEffect, useReducer } from 'react'
 import AppReducer from './AppReducer'
 
-const init = (initialState) =>
-  JSON.parse(localStorage.getItem('pomodoro-app')) || initialState
+const init = (initialState) => {
+  if (!localStorage.getItem('pomodoro-app')) return initialState
+
+  return {
+    ...initialState,
+    settings: JSON.parse(localStorage.getItem('pomodoro-app')),
+  }
+}
 
 const initialState = {
   settings: {
@@ -28,8 +34,9 @@ const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState, init)
 
   useEffect(() => {
-    localStorage.setItem('pomodoro-app', JSON.stringify(state))
-  }, [state])
+    // Only save the settings
+    localStorage.setItem('pomodoro-app', JSON.stringify(state.settings))
+  }, [state.settings])
 
   const setPomodoroTime = (newTime) => {
     if (!state.timerState.isBreakTime) {
